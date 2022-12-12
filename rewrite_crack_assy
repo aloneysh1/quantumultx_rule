@@ -31,6 +31,9 @@
 //09 骑行
 ^https:\/\/pt-starimg\.didistatic\.com\/static url reject
 
+# 京东助手
+https://raw.githubusercontent.com/githubdulong/Script/master/jdHelper.sgmodule, tag=京东助手, update-interval=172800, opt-parser=true, enabled=true
+
 # 什么值得买广告
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/smzdm/smzdm_remove_ads.sgmodule, tag=值买广告, update-interval=172800, opt-parser=true, enabled=true
 
