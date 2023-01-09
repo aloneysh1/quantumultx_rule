@@ -20,10 +20,28 @@ hostname = mage*.if.qidian.com, god.gameyw.netease.com, m.client.10010.com, clou
 # > AppSo
 ^https?:\/\/sso.ifanr.com\/jiong\/IOS\/appso\/splash\/ url reject
 # > 爱奇艺
-^https?:\/\/.+\/cdn\/qiyiapp\/\d{8}\/.+&dis_dz= url reject-img
-^https?:\/\/.+\/cdn\/qiyiapp\/\d{8}\/.+&z=\w url reject-img
-^https?:\/\/.+\/videos\/other\/ url reject
-^https?:\/\/iface2\.iqiyi\.com\/fusion\/3\.0\/fusion_switch url reject-img
+HOST,video-ad.sm.cn url reject
+HOST,api.cupid.dns.iqiyi.com url reject
+HOST-SUFFIX,cupid.iqiyi.com url reject
+^https?:\/\/static\.iqiyi\.com\/.+\/ad-sw\.js$ url reject
+^https?://.+/videos/other/.+? url reject
+^https?://.+\/.+/videos/other/.+ url reject
+^https?://paopao\w?.qiyipic.com url reject
+#^https?:\/\/data(.*)?\.video\.iqiyi\.com\/.+\.f4v$ url reject
+^https?+:\/\/iface\.iqiyi\.com\/api\/getNewAdInfo url reject
+^https?+:\/\/.+?\/(?>mixer|track2)\? url reject
+^https?+:\/\/act\.vip\.iqiyi\.com\/interact\/api\/show\.do url reject
+^https?+:\/\/act\.vip\.iqiyi\.com\/interact\/api\/v2\/show url reject
+^https?:\/\/.+\/(videos|qpdxv)\/.+\.mp4 url reject
+^https?:\/\/.+\/(videos|qpdxv)\/other\/.+\.mp4 url reject
+^https?:\/\/pic(.*)\.iqiyipic\.com\/advertise  url reject
+^https?:\/\/pic(.*)\.iqiyipic\.com\/image\/.+\/pv_(.*)\.jpg url reject
+^https?://paopao\w?.qiyipic.com url reject
+^https?:\/\/data(.*)?\.video\.iqiyi\.com\/.+\.f4v$ url reject
+^https?+:\/\/iface\.iqiyi\.com\/api\/getNewAdInfo url reject
+^https?+:\/\/.+?\/(?>mixer|track2)\? url reject
+^https?+:\/\/act\.vip\.iqiyi\.com\/interact\/api\/show\.do url reject
+^https?+:\/\/act\.vip\.iqiyi\.com\/interact\/api\/v2\/show url reject
 # > 阿里巴巴
 ^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alibaba\.advertisementservice\.getadv\/ url reject
 
@@ -51,6 +69,14 @@ hostname = mage*.if.qidian.com, god.gameyw.netease.com, m.client.10010.com, clou
 ^https:\/\/pn\.baidu\.com\/iad\/.+\.json url reject
 ^https:\/\/feed-image\.baidu\.com\/0\/pic\/ url reject
 ^https:\/\/mbd\.baidu\.com\/newspage\/api\/getmobads\?page\=landingshare url reject
+# > 百度地图
+^https?+:\/\/ss0\.bdstatic\.com/.+?_\d{3}_\d{4}\.jpg url reject
+^https:\/\/dss0\.bdstatic\.com\/.+/tam-ogel\/.+\.jpg url reject
+# > 手机百度
+HOST-SUFFIX,boxer.baidu.com url reject
+HOST-SUFFIX,ug.baidu.com url reject
+^https?:\/\/mbd\.baidu\.com\/tcbox url reject
+^https?:\/\/s\.bdstatic\.com\/common\/openjs\/openBox\.js.* url reject
 
 # ======= C ======= #
 # > 车来了
@@ -102,6 +128,9 @@ https?:\/\/res\.xiaojukeji\.com\/resapi\/activity\/get(Ruled|Preload|PasMultiNot
 ^https?:\/\/consumer\.fcbox\.com\/v\d\/ad\/ url reject
 # > 飞猪
 ^https?:\/\/gw\.alicdn\.com\/imgextra\/\w{2}\/[\w!]+-\d-tps-\d{3}-\d{4}\.(jpg|png)$ url reject
+# > 搬运淘宝(by gitee-木剑)->gw.alicdn.com,heic.alicdn.com
+^https?:\/\/(gw|heic)\.alicdn\.com\/\w{2}s\/.+\.jpg_(9\d{2}|\d{4}) url reject
+^https?:\/\/(gw|heic)\.alicdn\.com\/imgextra\/.+\d{4}-\d{4}\.jpg_(9\d{2}|\d{4}) url reject
 # > 飞客茶馆（请清除缓存使用）
 ^https?:\/\/47\.100\.65\.202\/source\/plugin\/mobile\/mobile\.php\?module=advis url reject
 ^https?:\/\/47\.100\.65\.202\/api\/mobile\/index\.php\?version=\d&mobile=yes&module=basicdata&type=forumlist url response-body adv response-body ddgksf2013
@@ -114,6 +143,11 @@ https://zone.guiderank-app.com/guiderank-web/app/ad/listLaunchADByCity.do url re
 ^https?:\/\/m5.amap.com\/ws\/valueadded\/ url reject
 # > 冠寓开屏广告
 https://guanyu.longfor.com/app-server/api/v1/main/start url reject
+# > 高德地图广告
+^http:\/\/ems\.youku\.com\/imp\? url reject
+^http:\/\/optimus-ads\.amap\.com\/uploadimg\/.+ url reject
+# > 广告联盟
+^https?:\/\/((api-access\.pangolin-sdk-toutiao|is\.snssdk)\.com\/api\/ad\/union\/sdk\/get_ads|open\.e\.kuaishou\.com\/rest\/e\/v3\/open\/univ$|mi\.gdt\.qq\.com\/gdt_mview\.fcg\?) url script-response-body https://hub.nange.cn/Script/Adsense/Adsense.js
 
 
 # ======= H ======= #
@@ -309,6 +343,29 @@ https?:\/\/m\.sd\.10086\.cn\/zapi\/app_common\/homeWelcome\/welcome.do url rejec
 https://ad.12306.cn/* url reject
 # > 腾讯手机管家
 ^https://otheve.beacon.qq.com\/analytics\/upload\?sid=.* url reject
+# > 腾讯视频
+HOST,news.l.qq.com url reject
+HOST,tetrack.qq.com url reject
+HOST-SUFFIX,beacon.qq.com url reject
+#HOST,video.dispatch.tc.qq.com url reject
+^https?://.+\.gdt\.qq\.com url reject
+^https?://.+\.l\.qq\.com url reject
+^https?:\/\/wa\.gtimg\.com\/adxcdn\/? url reject
+^https?+:\/\/vv\.video\.qq\.com\/getvmind\? url reject
+^https?://.+\/variety\.tc\.qq\.com\/.+\.mp4 url reject
+^https?://.+\/vmind\.qqvideo\.tc.\qq\.com\/.+\.mp4 url reject
+^https?:\/\/video\.dispatch\.tc\.qq\.com\/.+?\/.+?\.mp4 url reject
+^https?://.+\/video\.dispatch\.tc\.qq\.com\/.+?\/.+?\.mp4 url reject
+^https?://.+\/variety\.tc\.qq\.com\/.+?\/.+?\.mp4 url reject
+^https?://.+\/vmind\.qqvideo\.tc.\qq\.com\/.+?p201\.1\.mp4\? url reject
+^https:\/\/vm\.gtimg\.cn\/c\/=\/tencentvideo\/txp\/js\/plugins\? url reject
+^https?://.+\/monitor\/receive\.action$ url reject
+^https?+:\/\/(?:(?:25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)\.){3}(?:25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)\/.+?\.tc\.qq\.com\/.+?p201\.1\.mp4\? url reject
+IP-CIDR,36.99.176.160/32 url reject
+IP-CIDR,140.249.94.150/32 url reject
+;IP-CIDR,58.250.137.64/32 url reject
+IP-CIDR,150.138.229.18/32 url reject
+IP-CIDR,116.207.148.20/32 url reject
 # > 途牛
 ^https?:\/\/m\.tuniu\.com\/api\/operation\/splash\/ url reject
 # > 淘票票
