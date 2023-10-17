@@ -68,7 +68,7 @@ i:    &a7 {type: http,     behavior: ipcidr,    interval: 86400}
 proxy-providers:
   Subscribe:
     <<: *a1
-    url: https://sub.xeton.dev/sub?target=clash&url=https://subx114514.trafficmanager.net/api/v1/client/subscribe?token=d3579bd320523a4b5f68f016d8eed39e&list=true&udp=false 
+    url: https://sub.xeton.dev/sub?target=clash&url=https://subx114514.trafficmanager.net/api/v1/client/subscribe?token=&list=true&udp=false 
     path: ./proxy_providers/tmp.yaml
 
 
